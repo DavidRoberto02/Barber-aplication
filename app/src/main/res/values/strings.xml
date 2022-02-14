@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Barber App</string>
+    <string name="title_home">Hombres</string>
+    <string name="title_dashboard">Mujeres</string>
+    <string name="title_notifications">Agregar corte</string>
+    <string name="description_corte_photo">Imagen del corte</string>
+</resources>
