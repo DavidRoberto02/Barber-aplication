@@ -1,16 +1,13 @@
 package com.example.barberapp.ui.agregar
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -19,8 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.barberapp.R
 import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.google.android.material.snackbar.Snackbar
-import java.util.jar.Manifest
-import android.widget.Toast.makeText as toastMakeText
+
 
 class AgregarFragment : Fragment() {
 
@@ -43,6 +39,11 @@ class AgregarFragment : Fragment() {
         val root: View = binding.root
 
         binding.imageViewCorte.setOnClickListener { requestPermission() }
+
+        binding.btnSubirCorte.setOnClickListener {
+            Snackbar.make(binding.root, R.string.message_action_submit, Snackbar.LENGTH_LONG)
+                .show()
+        }
 
         return root
     }

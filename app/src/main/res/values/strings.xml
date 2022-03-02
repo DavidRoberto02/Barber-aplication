@@ -10,6 +10,7 @@
     <string name="message_action_loadimage">Necesita aceptar los permisos!</string>
     <string name="access_deneged">Aceptar</string>
     <string name="access">Aceptado!</string>
+    <string name="message_action_submit">Corte subido con exito</string>
 
     //Array Strings
     <string-array name="genero">
