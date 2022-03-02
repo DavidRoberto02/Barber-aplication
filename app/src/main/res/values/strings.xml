@@ -4,4 +4,19 @@
     <string name="title_dashboard">Mujeres</string>
     <string name="title_notifications">Agregar corte</string>
     <string name="description_corte_photo">Imagen del corte</string>
+    <string name="nombre_corte">Nombre del corte:</string>
+    <string name="descripcion_corte">Descripcion del corte de cabello:</string>
+    <string name="btn_submit">Subir corte</string>
+    <string name="message_action_loadimage">Necesita aceptar los permisos!</string>
+    <string name="access_deneged">Aceptar</string>
+    <string name="access">Aceptado!</string>
+
+    //Array Strings
+    <string-array name="genero">
+
+        <item>Seleccione el genero</item>
+        <item>Hombre</item>
+        <item>Mujer</item>
+    </string-array>
+
 </resources>

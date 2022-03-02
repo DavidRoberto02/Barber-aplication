@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_padding_min"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.agregar.AgregarFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombre_corte"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:helperText="@integer/helper_nombre_corte">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombreCorte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLength="@integer/helper_nombre_corte" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imageViewCorte"
+            android:layout_width="match_parent"
+            android:layout_height="187dp"
+            android:clickable="true"
+            android:layout_margin="@dimen/common_padding_default"
+            android:background="@drawable/bordes_imageview"
+            android:src="@drawable/ic_galery" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:hint="@string/descripcion_corte"
+            app:counterEnabled="true"
+            app:counterMaxLength="300"
+            app:helperText="@integer/helper_descripcion_corte">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescripcionCorte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|textPersonName|textImeMultiLine"
+                android:maxLength="@integer/helper_descripcion_corte" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/categoriaCorte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_weight="1"
+            android:entries="@array/genero"
+            android:minHeight="48dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubirCorte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:background="@drawable/bordes_imageview"
+            android:backgroundTint="@color/color_btn_submit"
+            android:text="@string/btn_submit"
+            android:textAllCaps="true" />
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/drawable/bordes_imageview.xml" value="0.36102564102564105" />
         <entry key="app/src/main/res/drawable/ic_barber.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/drawable/ic_barber_background.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/drawable/ic_barber_foreground.xml" value="0.20092592592592592" />
@@ -15,8 +16,11 @@
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/splashscreen.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3628668171557562" />
+        <entry key="app/src/main/res/layout/fragment_agregar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_hombre.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_mujer.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/layout/item_corte.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35052083333333334" />

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="helper_nombre_corte">50</integer>
+    <integer name="helper_descripcion_corte">300</integer>
+</resources>
