@@ -27,12 +27,8 @@
                 android:layout_width="@dimen/card_img_size"
                 android:layout_height="@dimen/card_img_size"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_iconman"
-                android:paddingLeft="@dimen/common_padding_middle"
-                android:paddingRight="@dimen/common_padding_middle" />
+                android:layout_gravity="center" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"

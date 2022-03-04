@@ -87,12 +87,55 @@ class HombreFragment : Fragment(), OnClickListener {
             "Corte no chido",
             "Hombre"
         )
+        val hola = User(
+            5,
+            "Low Fade",
+            "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg",
+            "Corte chido",
+            "Hombre"
+        )
+        val hola1 = User(
+            6,
+            "marulin chirulin",
+            "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg",
+            "jejejeje",
+            "Hombre"
+        )
+        val hola2 = User(
+            7,
+            "Typer Fase",
+            "https://live.staticflickr.com/974/42098804942_b9ce35b1c8_b.jpg",
+            "TA 2-2",
+            "Hombre"
+        )
+        val hola3 = User(
+            8,
+            "Hipe fade",
+            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
+            "Corte no chido",
+            "Hombre"
+        )
+
+        val hola4 = User(
+            8,
+            "Hipe fade",
+            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
+            "Corte no chido",
+            "Hombre"
+        )
 
 
         users.add(alain)
         users.add(samanta)
         users.add(javier)
         users.add(emma)
+        users.add(hola)
+        users.add(hola1)
+        users.add(hola2)
+        users.add(hola3)
+        users.add(hola4)
+
+
 
 
         return users

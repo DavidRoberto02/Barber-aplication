@@ -16,9 +16,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.barberapp.R
 import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class AgregarFragment : Fragment() {
+
+    private val db = FirebaseFirestore.getInstance()
 
     private lateinit var agregarViewModel: AgregarViewModel
     private var _binding: FragmentAgregarBinding? = null
@@ -41,6 +44,13 @@ class AgregarFragment : Fragment() {
         binding.imageViewCorte.setOnClickListener { requestPermission() }
 
         binding.btnSubirCorte.setOnClickListener {
+
+            db.collection("cortes").document("").get().addOnSuccessListener {
+                binding.etDescripcionCorte.setText(it.get("Descripcion") as String?)
+                binding.imageViewCorte.setImageURI(it.get("Imagen") as ?)
+                binding.categoriaCorte.setSelection(it.get("Sexo") as String?)
+
+            }
             Snackbar.make(binding.root, R.string.message_action_submit, Snackbar.LENGTH_LONG)
                 .show()
         }
