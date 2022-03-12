@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.barberapp.R
 import com.example.barberapp.databinding.FragmentAgregarBinding
+import com.example.barberapp.ui.recyclerView.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -22,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AgregarFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
-
+    private val users = mutableListOf<User>()
     private lateinit var agregarViewModel: AgregarViewModel
     private var _binding: FragmentAgregarBinding? = null
 
@@ -44,19 +45,34 @@ class AgregarFragment : Fragment() {
         binding.imageViewCorte.setOnClickListener { requestPermission() }
 
         binding.btnSubirCorte.setOnClickListener {
+            val nombre = binding.etNombreCorte.text.toString()
+            val descripcion = binding.etDescripcionCorte.text.toString()
+            val imagen = binding.imageViewCorte.setImageURI(null).toString()
+            val sexo = binding.categoriaCorte.selectedItem.toString()
 
-            db.collection("cortes").document("").get().addOnSuccessListener {
-                binding.etDescripcionCorte.setText(it.get("Descripcion") as String?)
-                binding.imageViewCorte.setImageURI(it.get("Imagen") as ?)
-                binding.categoriaCorte.setSelection(it.get("Sexo") as String?)
+            saveFireStore(descripcion, imagen, sexo, nombre)
 
-            }
             Snackbar.make(binding.root, R.string.message_action_submit, Snackbar.LENGTH_LONG)
                 .show()
         }
 
         return root
     }
+
+
+    private fun saveFireStore(descripcion: String, imagen: String, sexo: String, nombre: String) {
+
+        db.collection("cortes")
+            .document(nombre)
+            .set(
+                hashMapOf(
+                    "Descripcion" to descripcion,
+                    "Sexo" to sexo,
+                    "Imagen" to imagen
+                )
+            )
+    }
+
 
     private fun requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -110,4 +126,6 @@ class AgregarFragment : Fragment() {
         _binding = null
     }
 
+
 }
+
