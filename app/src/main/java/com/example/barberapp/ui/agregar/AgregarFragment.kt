@@ -1,16 +1,19 @@
 package com.example.barberapp.ui.agregar
 
-import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.app.ProgressDialog
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.net.Uri
 import android.os.Bundle
+import android.util.Base64.DEFAULT
+import android.util.Base64.encodeToString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.barberapp.R
@@ -18,11 +21,16 @@ import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.example.barberapp.ui.recyclerView.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AgregarFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
+    lateinit var ImageUri : Uri
     private val users = mutableListOf<User>()
     private lateinit var agregarViewModel: AgregarViewModel
     private var _binding: FragmentAgregarBinding? = null
@@ -44,14 +52,15 @@ class AgregarFragment : Fragment() {
 
         binding.imageViewCorte.setOnClickListener { requestPermission() }
 
+        binding.btnSubirImagen.setOnClickListener { uploadImage() }
+
         binding.btnSubirCorte.setOnClickListener {
             val nombre = binding.etNombreCorte.text.toString()
             val descripcion = binding.etDescripcionCorte.text.toString()
-            val imagen = binding.imageViewCorte.setImageURI(null).toString()
+            val imagen = binding.imageViewCorte.setImageURI(ImageUri).toString()
             val sexo = binding.categoriaCorte.selectedItem.toString()
 
             saveFireStore(descripcion, imagen, sexo, nombre)
-
             Snackbar.make(binding.root, R.string.message_action_submit, Snackbar.LENGTH_LONG)
                 .show()
         }
@@ -61,7 +70,7 @@ class AgregarFragment : Fragment() {
 
 
     private fun saveFireStore(descripcion: String, imagen: String, sexo: String, nombre: String) {
-
+        //CREAR LA COLECCION DE DATOS EN CLOUD FIRESTORE.
         db.collection("cortes")
             .document(nombre)
             .set(
@@ -73,51 +82,51 @@ class AgregarFragment : Fragment() {
             )
     }
 
+    private fun uploadImage() {
+
+        val progressDialog = ProgressDialog(this.context)
+        progressDialog.setMessage("Subiendo imagen...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
+        val now = Date()
+        val fileName = formatter.format(now)
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+        storageReference.putFile(ImageUri)
+            .addOnSuccessListener {
+
+                binding.imageViewCorte.setImageURI(null)
+                Toast.makeText(this.context, "Subida con exito", Toast.LENGTH_SHORT).show()
+                if (progressDialog.isShowing) progressDialog.dismiss()
+
+
+            }.addOnFailureListener {
+                if (progressDialog.isShowing) progressDialog.dismiss()
+                Toast.makeText(this.context, "Ha fallado", Toast.LENGTH_SHORT).show()
+
+            }
+    }
+
 
     private fun requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            when {
-                ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    obtenerFotoGaleria()
-                }
-                else -> requestPermissionLauncher.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-        } else {
-            obtenerFotoGaleria()
-        }
-    }
-
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (isGranted) {
-            obtenerFotoGaleria()
-        } else {
-            Snackbar.make(binding.root, R.string.message_action_loadimage, Snackbar.LENGTH_LONG)
-                .setAction(R.string.access_deneged) {
-                    Toast.makeText(context, R.string.access, Toast.LENGTH_SHORT).show()
-                }
-                .show()
-        }
-
-    }
-
-    private val startForActivityGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data?.data
-            binding.imageViewCorte.setImageURI(data)
-        }
-    }
-
-    private fun obtenerFotoGaleria() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        val intent = Intent()
         intent.type = "image/*"
-        startForActivityGallery.launch(intent)
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(intent, 100)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 100 && resultCode == RESULT_OK ){
+
+            ImageUri = data?.data!!
+            binding.imageViewCorte.setImageURI(ImageUri)
+
+
+        }
     }
 
 

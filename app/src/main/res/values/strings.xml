@@ -11,6 +11,8 @@
     <string name="access_deneged">Aceptar</string>
     <string name="access">Aceptado!</string>
     <string name="message_action_submit">Corte subido con exito</string>
+    <string name="btn_submit_image">Subir imagen del corte</string>
+    <string name="btn_submit_Image">Subir Imagen</string>
 
     //Array Strings
     <string-array name="genero">
