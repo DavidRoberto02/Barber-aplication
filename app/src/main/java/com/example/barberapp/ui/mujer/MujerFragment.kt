@@ -61,81 +61,99 @@ class MujerFragment : Fragment(), OnClickListener {
     private fun getUsers(): MutableList<User> {
         val users = mutableListOf<User>()
 
-        val alain = User(
+        val pixie = User(
             1,
-            "Low Fade",
-            "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg",
-            "Corte chido",
-            "Hombre"
+            "Pixie",
+            "https://cafeversatil.com/wp-content/uploads/2018/12/35_guetzli.jpg",
+            "Se tiene la falsa idea que el pelo sexy es sinónimo de pelo largo. Este es un concepto erróneo, ya que los cortes cortos también pueden verse muy sexys",
+            "Mujer"
         )
-        val samanta = User(
+        val Bobcorto = User(
             2,
-            "marulin chirulin",
-            "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg",
-            "jejejeje",
-            "Hombre"
+            "Bob corto",
+            "https://cafeversatil.com/wp-content/uploads/2017/11/00_guetzli-1.jpg",
+            "Esta opción es igual de cómoda y versátil que la anterior, y tiene la ventaja que al tener unos 10 o 12 cm de largo, te da más libertad a la hora de peinarlo, puedes alisarlo u ondularlo con más comodidad y facilidad.",
+            "Mujer"
         )
-        val javier = User(
+        val melenaMidi = User(
             3,
-            "Typer Fase",
-            "https://live.staticflickr.com/974/42098804942_b9ce35b1c8_b.jpg",
-            "TA 2-2",
-            "Hombre"
+            "Melena Midi",
+            "https://cafeversatil.com/wp-content/uploads/2018/12/15_guetzli.jpg",
+            "El cabello no debe estar demasiado escalonado como en temporadas anteriores. Se pueden agregar unas pocas capas para dar volumen y movimiento.",
+            "Mujer"
         )
-        val emma = User(
+        val Boblargo = User(
             4,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
-            "Hombre"
+            "Bob largo",
+            "https://cafeversatil.com/wp-content/uploads/2018/12/06_guetzli-768x960.jpg",
+            "Se trata de un corte muy versátil, que nos sentará bien tanto con una cabellera muy lacia como con una suavemente ondulada y en algunos casos también en su versión más rizada.",
+            "Mujer"
         )
-        val hola = User(
+        val Carré = User(
             5,
-            "Low Fade",
-            "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg",
-            "Corte chido",
-            "Hombre"
+            "Carré",
+            "https://depeinados.com/wp-content/uploads/2018/11/CorteBob62-600x900.jpg",
+            "Este corte es similar al Bob, pero la diferencia radica en que el largo de la parte de atrás es casi igual a la de adelante.",
+            "Mujer"
         )
-        val hola1 = User(
+        val Flequillo = User(
             6,
-            "marulin chirulin",
-            "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg",
-            "jejejeje",
-            "Hombre"
+            "Flequillo",
+            "https://cafeversatil.com/wp-content/uploads/2018/12/01_guetzli-1.jpg",
+            "Laterales, rectos o cortina, todos los tipos de flequillo están de moda. Ahora ya no es necesario perder el tiempo y los nervios para arreglar el flequillo antes de salir, cuanto más desordenado, mejor.",
+            "Mujer"
         )
-        val hola2 = User(
+        val wolfCut = User(
             7,
-            "Typer Fase",
-            "https://live.staticflickr.com/974/42098804942_b9ce35b1c8_b.jpg",
-            "TA 2-2",
-            "Hombre"
+            "Wolf Cut",
+            "https://www.sdpnoticias.com/resizer/E1iyZ_IuxQ8YGIUfzyyD3GDBV1k=/1200x0/filters:format(jpg):quality(90)/cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/LHOVEKODYND7XG3UDHBLPWEXVA.jpg",
+            "El ‘wolf cut’ es un corte de cabello similar al ‘mullet’ y ‘shag’, mismos que surgieron en la década de los 80 y que, además, fueron tendencia en 2021.",
+            "Mujer"
         )
-        val hola3 = User(
+        val Caoba = User(
             8,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
-            "Hombre"
+            "Caoba",
+            "https://media.glamour.mx/photos/61904cc8dc5382f9acfb3423/master/w_1600,c_limit/268100.jpg",
+            "Es un tinte rojo oscuro que tiende al café de la madera y que se ve perfecto tanto en pieles cálidas como frías. Su acabado es brillante, así que entre más largo, más resaltará su coloración.",
+            "Mujer"
+        )
+        val RosaFresa = User(
+            9,
+            "Rosa Fresa",
+            "https://media.glamour.mx/photos/61904cc72d97bd4c522a1c88/master/w_1600,c_limit/258444.jpeg",
+            "El rosa pastel ha regresado para quedarse y puede llevarse claro o un poco más encendido, en una tonalidad fresa. Para llegar al tinte, es necesario decolorar el cabello, pero vale la pena por completo, sobre todo si eres de piel fría.",
+            "Mujer"
+        )
+        val RubioTigre = User(
+            10,
+            "Rubio trigo",
+            "https://media.glamour.mx/photos/61904cc92d97bd4c522a1c90/master/w_1600,c_limit/262281.jpg",
+            "El tono se asemeja a un dorado con luces y sombras cafés que favorecen muchísimo si eres de piel cálida.",
+            "Mujer"
+        )
+        val Avellana = User(
+            11,
+            "Avellana",
+            "https://media.glamour.mx/photos/61904cc82d97bd4c522a1c8f/master/w_1600,c_limit/221802.jpg",
+            "Este color de cabello café con acentos rojizos y cálidos hace que tu piel luzca más clara y tu melena más sexy y saludable.",
+            "Mujer"
         )
 
-        val hola4 = User(
-            8,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
-            "Hombre"
-        )
+
+        users.add(pixie)
+        users.add(Bobcorto)
+        users.add(melenaMidi)
+        users.add(Boblargo)
+        users.add(Carré)
+        users.add(Flequillo)
+        users.add(wolfCut)
+        users.add(Caoba)
+        users.add(RosaFresa)
+        users.add(RubioTigre)
+        users.add(Avellana)
 
 
-        users.add(alain)
-        users.add(samanta)
-        users.add(javier)
-        users.add(emma)
-        users.add(hola)
-        users.add(hola1)
-        users.add(hola2)
-        users.add(hola3)
-        users.add(hola4)
+
         return users
     }
 

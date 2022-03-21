@@ -17,14 +17,14 @@
         <entry key="app/src/main/res/drawable/redondeo_img_rv.xml" value="0.34629629629629627" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/splashscreen.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3628668171557562" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_agregar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/layout/fragment_hombre.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/layout/fragment_mujer.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.2767210144927536" />
-        <entry key="app/src/main/res/layout/item_corte.xml" value="0.6078799249530957" />
+        <entry key="app/src/main/res/layout/item_corte.xml" value="0.33" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_barber.xml" value="0.2078125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_barber_round.xml" value="0.2078125" />

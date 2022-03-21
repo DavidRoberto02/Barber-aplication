@@ -38,7 +38,7 @@ class HombreFragment : Fragment(), OnClickListener {
         val root: View = binding.root
 
 
-        userAdapter = UserAdapter (getUsers(), this)
+        userAdapter = UserAdapter(getUsers(), this)
         linearLayoutManager = LinearLayoutManager(this.context)
 
         binding.recyclerViewHombre.apply {
@@ -46,9 +46,9 @@ class HombreFragment : Fragment(), OnClickListener {
             layoutManager = linearLayoutManager
             adapter = userAdapter
         }
+
         return root
     }
-
 
 
     override fun onDestroyView() {
@@ -59,84 +59,89 @@ class HombreFragment : Fragment(), OnClickListener {
     private fun getUsers(): MutableList<User> {
         val users = mutableListOf<User>()
 
-        val alain = User(
+        val lowFade = User(
             1,
             "Low Fade",
-            "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg",
-            "Corte chido",
+            "https://www.todonline.co/contenido/uploads/2021/06/Curly-Hair-cortes-pelo-rizado-Drop-Fade.webp",
+            "Mantiene los lados de abajo de tu cabello lo más cerca de tu piel y se va volviendo más largo conforme va yendo hacia arriba.",
             "Hombre"
         )
-        val samanta = User(
+        val typerFade = User(
             2,
-            "marulin chirulin",
-            "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg",
-            "jejejeje",
+            "Typer Fade",
+            "https://highnessdottv.files.wordpress.com/2016/03/taper-fade-10.jpg?w=750",
+            "corte de pelo degradado, generalmente masculino, donde el cabello está muy recortado en la nuca, patillas y laterales de la cabeza, volviéndose más largo en la parte superior de la misma.",
             "Hombre"
         )
-        val javier = User(
+        val razorFade = User(
             3,
-            "Typer Fase",
-            "https://live.staticflickr.com/974/42098804942_b9ce35b1c8_b.jpg",
-            "TA 2-2",
+            "Razor Fade",
+            "https://cms.modumb.com/assets/img/web/images/corte_razor_fade.jpg",
+            "Es un tipo de corte en el que el degradado comienza en la nuca y va subiendo hasta alcanzar un largo más pronunciado",
             "Hombre"
         )
-        val emma = User(
+        val highFade = User(
             4,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
+            "High Fade",
+            "https://cms.modumb.com/assets/img/web/images/corte_high_fade.jpg",
+            "Implica un afeitado profundo a lo largo de los lados y en la parte posterior de la cabeza.",
             "Hombre"
         )
-        val hola = User(
+        val midFade = User(
             5,
-            "Low Fade",
-            "https://frogames.es/wp-content/uploads/2020/09/alain-1.jpg",
-            "Corte chido",
+            "Mid Fade",
+            "https://modatoponline.com/wp-content/uploads/2018/10/23_guetzli-768x777.jpg",
+            "El desvanecimiento medio es otro tipo de corte gradual donde la disminución comienza en la mitad del cuero cabelludo. Es uno de los preferidos, ya que logra un estilo apuesto.",
             "Hombre"
         )
-        val hola1 = User(
+        val undercut = User(
             6,
-            "marulin chirulin",
-            "https://upload.wikimedia.org/wikipedia/commons/b/b2/Samanta_villar.jpg",
-            "jejejeje",
+            "Undercut",
+            "https://modatoponline.com/wp-content/uploads/2018/10/15_guetzli-768x768.jpg",
+            "El peinado undercut o socavado es cualquier tipo de corte en el que el pelo en la parte más alta de la cabeza es largo y espeso y lleva a una parte inferior muy corta.",
             "Hombre"
         )
-        val hola2 = User(
+        val pompadour = User(
             7,
-            "Typer Fase",
-            "https://live.staticflickr.com/974/42098804942_b9ce35b1c8_b.jpg",
-            "TA 2-2",
+            "Pompadour",
+            "https://modatoponline.com/wp-content/uploads/2018/10/70_guetzli-768x768.jpg",
+            "Este corte de cabello deja una gran porción de cabello para girarlo hacia atrás. Este estilo resurgió en los años 80 y en la actualidad tiene muchos seguidores.",
             "Hombre"
         )
-        val hola3 = User(
+        val Mullet = User(
             8,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
+            "Mullet",
+            "https://tendenzias.com//wp-content/uploads/2021/03/cortes-de-pelo-para-hombre-invierno-2021-corte-troye-sivan-istock.jpg",
+            "El corte de estilo mullet ha arrasado entre los cortes de moda para la mujer en este 2022, pero también se van a llevar mucho para los hombres. ",
+            "Hombre"
+        )
+        val buzzCut = User(
+            9,
+            "Buzz cut",
+            "https://cafeversatil.com/wp-content/uploads/2019/05/23_guetzli.jpg",
+            "Ideal para los hombres que quieren algo práctico, sin complicaciones, que requiere poco mantenimiento. Si tienes el pelo muy grueso o muy rizado, difícil de peinar, esta es una excelente opción. ",
+            "Hombre"
+        )
+        val mohawk = User(
+            10,
+            "Mohawk",
+            "https://cafeversatil.com/wp-content/uploads/2019/05/11_guetzli.jpg",
+            "El pelo corto con la cresta que llega hasta la nuca, ligeramente más larga. Esto le da mucho volumen y movimiento así como un aspecto muy juvenil.",
             "Hombre"
         )
 
-        val hola4 = User(
-            8,
-            "Hipe fade",
-            "https://upload.wikimedia.org/wikipedia/commons/d/d9/Emma_Wortelboer_%282018%29.jpg",
-            "Corte no chido",
-            "Hombre"
-        )
 
 
-        users.add(alain)
-        users.add(samanta)
-        users.add(javier)
-        users.add(emma)
-        users.add(hola)
-        users.add(hola1)
-        users.add(hola2)
-        users.add(hola3)
-        users.add(hola4)
-
-
-
+        users.add(lowFade)
+        users.add(typerFade)
+        users.add(razorFade)
+        users.add(highFade)
+        users.add(midFade)
+        users.add(undercut)
+        users.add(pompadour)
+        users.add(Mullet)
+        users.add(buzzCut)
+        users.add(mohawk)
 
         return users
     }

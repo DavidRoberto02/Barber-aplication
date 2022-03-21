@@ -5,8 +5,10 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
 import android.util.Base64.DEFAULT
 import android.util.Base64.encodeToString
 import android.view.LayoutInflater
@@ -16,9 +18,12 @@ import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.barberapp.R
 import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.example.barberapp.ui.recyclerView.User
+import com.example.barberapp.ui.recyclerView.UserAdapter
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -29,11 +34,13 @@ import java.util.*
 
 class AgregarFragment : Fragment() {
 
-    private val db = FirebaseFirestore.getInstance()
-    lateinit var ImageUri : Uri
-    private val users = mutableListOf<User>()
+
     private lateinit var agregarViewModel: AgregarViewModel
     private var _binding: FragmentAgregarBinding? = null
+    private val db = FirebaseFirestore.getInstance()
+    lateinit var ImageUri: Uri
+    private lateinit var userAdapter: UserAdapter
+    private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -50,6 +57,9 @@ class AgregarFragment : Fragment() {
         _binding = FragmentAgregarBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+
+
         binding.imageViewCorte.setOnClickListener { requestPermission() }
 
         binding.btnSubirImagen.setOnClickListener { uploadImage() }
@@ -57,10 +67,11 @@ class AgregarFragment : Fragment() {
         binding.btnSubirCorte.setOnClickListener {
             val nombre = binding.etNombreCorte.text.toString()
             val descripcion = binding.etDescripcionCorte.text.toString()
-            val imagen = binding.imageViewCorte.setImageURI(ImageUri).toString()
             val sexo = binding.categoriaCorte.selectedItem.toString()
 
-            saveFireStore(descripcion, imagen, sexo, nombre)
+
+            saveFireStore(descripcion, sexo, nombre)
+
             Snackbar.make(binding.root, R.string.message_action_submit, Snackbar.LENGTH_LONG)
                 .show()
         }
@@ -69,17 +80,35 @@ class AgregarFragment : Fragment() {
     }
 
 
-    private fun saveFireStore(descripcion: String, imagen: String, sexo: String, nombre: String) {
+
+
+    private fun saveFireStore(descripcion: String, sexo: String, nombre: String) {
         //CREAR LA COLECCION DE DATOS EN CLOUD FIRESTORE.
         db.collection("cortes")
             .document(nombre)
             .set(
                 hashMapOf(
                     "Descripcion" to descripcion,
-                    "Sexo" to sexo,
-                    "Imagen" to imagen
+                    "Sexo" to sexo
                 )
             )
+    }
+
+    private fun getFireStore(descripcion: String, sexo: String, nombre: String){
+        db.collection("cortes")
+            .document(nombre)
+            .get()
+            .addOnSuccessListener {
+                //condicionamos la seleccion del genero a subirse en la vista correspondiente.
+                binding.etDescripcionCorte.setText(it.get("Descripcion") as String?)
+
+                if (binding.categoriaCorte.equals("Hombre")){
+                }else if (binding.categoriaCorte.equals("Mujer")){
+
+                }
+
+
+            }
     }
 
     private fun uploadImage() {
@@ -109,7 +138,6 @@ class AgregarFragment : Fragment() {
             }
     }
 
-
     private fun requestPermission() {
         val intent = Intent()
         intent.type = "image/*"
@@ -120,7 +148,7 @@ class AgregarFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100 && resultCode == RESULT_OK ){
+        if (requestCode == 100 && resultCode == RESULT_OK) {
 
             ImageUri = data?.data!!
             binding.imageViewCorte.setImageURI(ImageUri)
