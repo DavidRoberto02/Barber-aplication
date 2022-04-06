@@ -1,14 +1,10 @@
 package com.example.barberapp.ui.mujer
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,8 +18,6 @@ import com.example.barberapp.ui.recyclerView.User
 import com.example.barberapp.ui.recyclerView.UserAdapter
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.*
-import com.google.protobuf.Value
-import java.io.ByteArrayOutputStream
 
 class MujerFragment : Fragment(), OnClickListener {
 
@@ -158,10 +152,7 @@ class MujerFragment : Fragment(), OnClickListener {
     }
 
     override fun onClick(user: User) {
-        //Toast.makeText(context, "${user.nombre}", Toast.LENGTH_SHORT).show()
-
-
-        val intent = Intent (this.context, DetalleCorte::class.java)
+        val intent = Intent(this.context, DetalleCorte::class.java)
         intent.putExtra("nombre", user.nombre)
         intent.putExtra("url", user.url)
         intent.putExtra("descripcion", user.descripcion)

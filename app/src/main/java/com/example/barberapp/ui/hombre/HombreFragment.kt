@@ -1,17 +1,18 @@
 package com.example.barberapp.ui.hombre
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.example.barberapp.databinding.FragmentHombreBinding
+import com.example.barberapp.ui.recyclerView.DetalleCorte
 import com.example.barberapp.ui.recyclerView.OnClickListener
 import com.example.barberapp.ui.recyclerView.User
 import com.example.barberapp.ui.recyclerView.UserAdapter
@@ -25,7 +26,7 @@ class HombreFragment : Fragment(), OnClickListener {
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHombreBinding? = null
-    private lateinit var bindingAdd : FragmentAgregarBinding
+    private lateinit var bindingAdd: FragmentAgregarBinding
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -55,8 +56,6 @@ class HombreFragment : Fragment(), OnClickListener {
 
         return root
     }
-
-
 
 
     override fun onDestroyView() {
@@ -147,6 +146,10 @@ class HombreFragment : Fragment(), OnClickListener {
 
 
     override fun onClick(user: User) {
-        Toast.makeText(context, "${user.nombre}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this.context, DetalleCorte::class.java)
+        intent.putExtra("nombre", user.nombre)
+        intent.putExtra("url", user.url)
+        intent.putExtra("descripcion", user.descripcion)
+        startActivity(intent)
     }
 }
