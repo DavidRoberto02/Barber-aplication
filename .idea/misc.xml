@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable/redondeo_img_rv.xml" value="0.34629629629629627" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/splashscreen.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_detalle_corte.xml" value="0.3151041666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_agregar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2767210144927536" />

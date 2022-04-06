@@ -83,15 +83,6 @@
             android:text="@string/btn_submit"
             android:textAllCaps="true" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubirImagen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_padding_default"
-            android:background="@drawable/bordes_imageview"
-            android:backgroundTint="@color/color_btn_submit"
-            android:text="@string/btn_submit_Image"
-            android:textAllCaps="true" />
 
     </LinearLayout>
 

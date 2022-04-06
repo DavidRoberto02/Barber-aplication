@@ -12,4 +12,5 @@ class MujerViewModel : ViewModel() {
     val text: LiveData<String> = _text
 
      */
+
 }

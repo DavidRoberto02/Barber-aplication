@@ -1,5 +1,6 @@
 package com.example.barberapp.ui.agregar
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.app.ProgressDialog
 import android.content.Intent
@@ -11,6 +12,7 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Base64.DEFAULT
 import android.util.Base64.encodeToString
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +27,9 @@ import com.example.barberapp.databinding.FragmentAgregarBinding
 import com.example.barberapp.ui.recyclerView.User
 import com.example.barberapp.ui.recyclerView.UserAdapter
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
@@ -39,8 +43,6 @@ class AgregarFragment : Fragment() {
     private var _binding: FragmentAgregarBinding? = null
     private val db = FirebaseFirestore.getInstance()
     lateinit var ImageUri: Uri
-    private lateinit var userAdapter: UserAdapter
-    private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -58,11 +60,7 @@ class AgregarFragment : Fragment() {
         val root: View = binding.root
 
 
-
-
         binding.imageViewCorte.setOnClickListener { requestPermission() }
-
-        binding.btnSubirImagen.setOnClickListener { uploadImage() }
 
         binding.btnSubirCorte.setOnClickListener {
             val nombre = binding.etNombreCorte.text.toString()
@@ -80,8 +78,6 @@ class AgregarFragment : Fragment() {
     }
 
 
-
-
     private fun saveFireStore(descripcion: String, sexo: String, nombre: String) {
         //CREAR LA COLECCION DE DATOS EN CLOUD FIRESTORE.
         db.collection("cortes")
@@ -92,24 +88,10 @@ class AgregarFragment : Fragment() {
                     "Sexo" to sexo
                 )
             )
+        uploadImage()
     }
 
-    private fun getFireStore(descripcion: String, sexo: String, nombre: String){
-        db.collection("cortes")
-            .document(nombre)
-            .get()
-            .addOnSuccessListener {
-                //condicionamos la seleccion del genero a subirse en la vista correspondiente.
-                binding.etDescripcionCorte.setText(it.get("Descripcion") as String?)
 
-                if (binding.categoriaCorte.equals("Hombre")){
-                }else if (binding.categoriaCorte.equals("Mujer")){
-
-                }
-
-
-            }
-    }
 
     private fun uploadImage() {
 

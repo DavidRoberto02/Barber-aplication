@@ -4,16 +4,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.barberapp.R
 import com.example.barberapp.databinding.ItemCorteBinding
 
-class UserAdapter(private val users: List<User>, private val listener: OnClickListener) :
+class UserAdapter(
+    private val users: List<User> = listOf(),
+    private val listener: OnClickListener
+    ) :
     RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     private lateinit var context: Context
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
@@ -24,6 +29,7 @@ class UserAdapter(private val users: List<User>, private val listener: OnClickLi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = users.get(position)
+
 
         with(holder) {
             setListener(user)
@@ -36,6 +42,7 @@ class UserAdapter(private val users: List<User>, private val listener: OnClickLi
                 .circleCrop()
                 .into(binding.imgPhoto)
         }
+
     }
 
     override fun getItemCount(): Int = users.size
@@ -46,5 +53,6 @@ class UserAdapter(private val users: List<User>, private val listener: OnClickLi
         fun setListener(user: User) {
             binding.root.setOnClickListener { listener.onClick(user) }
         }
+
     }
 }

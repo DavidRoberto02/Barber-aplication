@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.recyclerView.DetalleCorte">
+
+
+    <TextView
+        android:id="@+id/tvNombreCorteInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_padding_default"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nombre del corte" />
+
+    <ImageView
+        android:id="@+id/imgPhotoDetalle"
+        android:layout_width="383dp"
+        android:layout_height="326dp"
+        android:layout_margin="@dimen/common_padding_default"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreCorteInfo" />
+
+    <TextView
+        android:id="@+id/tvDescripcionCorteInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_padding_default"
+        android:ellipsize="end"
+        android:maxLines="20"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/imgPhotoDetalle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="374dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
