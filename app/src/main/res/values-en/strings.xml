@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Barber App</string>
+    <string name="title_home">Man</string>
+    <string name="title_dashboard">Women</string>
+    <string name="title_productos">Products</string>
+    <string name="description_corte_photo">Image of the cut</string>
+    <string name="nombre_corte">Name of the cut:</string>
+    <string name="descripcion_corte">Haircut description:</string>
+    <string name="btn_submit">Upload</string>
+    <string name="message_action_loadimage">You need to accept the permissions!</string>
+    <string name="access_deneged">Accept</string>
+    <string name="access">Accepted!</string>
+    <string name="message_action_submit">Cutting successfully uploaded</string>
+    <string name="btn_submit_image">Upload cut image</string>
+    <string name="btn_submit_Image">Upload Image</string>
+    <string name="text_name_corte">Name of the cut</string>
+    <string name="text_image_Corte">Image of the cut</string>
+    <string name="welcome_login_success">Welcome</string>
+    <string name="text_name_description">Description of the cut</string>
+
+</resources>

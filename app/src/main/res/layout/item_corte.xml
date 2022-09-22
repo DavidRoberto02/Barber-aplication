@@ -16,11 +16,13 @@
             style="?attr/textAppearanceHeadline6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:inputType="textMultiLine"
             android:layout_marginStart="@dimen/common_padding_default"
             android:layout_marginTop="@dimen/common_padding_default"
-            android:background="?attr/selectableItemBackground"
             android:text="@string/text_name_corte"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -42,7 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/common_padding_default"
             android:padding="@dimen/common_padding_min"
-            android:background="?attr/selectableItemBackground"
             android:text="@string/text_name_description"
             android:inputType="textMultiLine"
             android:maxLines="10"
