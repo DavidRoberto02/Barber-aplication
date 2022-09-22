@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarberApp">
         <activity
-            android:name=".ui.recyclerView.DetalleCorte"
-            android:exported="false" />
-        <activity
             android:name=".ui.splashscreen.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">

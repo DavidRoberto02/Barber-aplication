@@ -2,7 +2,7 @@
     <string name="app_name">Barber App</string>
     <string name="title_home">Hombres</string>
     <string name="title_dashboard">Mujeres</string>
-    <string name="title_notifications">Agregar corte</string>
+    <string name="title_productos">Productos</string>
     <string name="description_corte_photo">Imagen del corte</string>
     <string name="nombre_corte">Nombre del corte:</string>
     <string name="descripcion_corte">Descripcion del corte de cabello:</string>
@@ -13,6 +13,10 @@
     <string name="message_action_submit">Corte subido con exito</string>
     <string name="btn_submit_image">Subir imagen del corte</string>
     <string name="btn_submit_Image">Subir Imagen</string>
+    <string name="text_name_corte">Nombre del corte</string>
+    <string name="text_image_Corte">Imagen del corte</string>
+    <string name="welcome_login_success">Bienvenido</string>
+    <string name="text_name_description">Descripcion del corte</string>
 
     //Array Strings
     <string-array name="genero">
@@ -20,6 +24,8 @@
         <item>Seleccione el genero</item>
         <item>Hombre</item>
         <item>Mujer</item>
+        <item>Productos</item>
+
     </string-array>
 
 </resources>

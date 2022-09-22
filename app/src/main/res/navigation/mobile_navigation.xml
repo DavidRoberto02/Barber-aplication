@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.barberapp.ui.hombre.HombreFragment"
+        android:name="com.example.barberapp.ui.hombreModule.HombreFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_hombre" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.barberapp.ui.mujer.MujerFragment"
+        android:name="com.example.barberapp.ui.mujerModule.MujerFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_mujer" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.barberapp.ui.agregar.AgregarFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_agregar" />
+        android:name="com.example.barberapp.ui.productsModule.ProductsFragment"
+        android:label="@string/title_productos"
+        tools:layout="@layout/fragment_productos" />
 </navigation>
